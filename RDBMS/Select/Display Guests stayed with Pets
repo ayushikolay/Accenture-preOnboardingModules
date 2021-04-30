@@ -1,0 +1,4 @@
+ select guestid, resortID, (todate-fromdate) as numberofdays, adultCount, childCount, petCount, totalcharge
+from booking
+where petCount > 0
+order by petCount desc;
