@@ -1,1 +1,1 @@
-drop table student cascade constraint;
+drop table student cascade constraints;
