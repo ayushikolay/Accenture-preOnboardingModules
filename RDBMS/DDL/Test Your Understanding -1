@@ -1,0 +1,49 @@
+/*
+Test Your Understanding 1
+Refer the below schema, and modify the given query appropriately in order to create the product table.
+
+COLUMN NAME
+
+DATATYPE
+
+SIZE
+
+CONSTRAINT
+
+prod_id
+
+number
+
+4
+
+Primary key
+
+prod_name
+
+varchar2
+
+25
+
+ 
+
+Prod_expiry_date
+
+date
+Not null*/
+
+
+
+CREATE TABLE product
+( prod_id number(4) primary key,
+  prod_name varchar2(25),
+  prod_expiry_date date not  null
+); 
+
+ 
+
+
+
+
+
+
+
