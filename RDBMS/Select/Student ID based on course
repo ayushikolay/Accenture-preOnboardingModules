@@ -1,0 +1,4 @@
+select distinct StudId
+from registration
+where courseID in (1001,1005)
+order by StudId;
