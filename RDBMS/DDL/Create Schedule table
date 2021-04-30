@@ -1,0 +1,9 @@
+create table schedule
+(schedule_id varchar(3),
+travel_date date,
+source varchar(20),
+destination varchar(20),
+bus_no number(11),
+duration number(11),
+constraint PK_SCHEDULE primary key(schedule_id),
+constraint FK_SCHEDULE_BUSES foreign key(bus_no) references buses(bus_no));
