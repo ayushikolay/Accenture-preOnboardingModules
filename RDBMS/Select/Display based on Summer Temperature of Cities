@@ -1,0 +1,6 @@
+
+
+select townname
+from Town 
+where summertemp > 30
+order by summertemp desc;
