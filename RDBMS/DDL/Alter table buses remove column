@@ -1,0 +1,2 @@
+alter table buses
+drop column Ac_Available;
