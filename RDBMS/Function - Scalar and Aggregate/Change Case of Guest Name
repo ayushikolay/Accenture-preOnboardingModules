@@ -1,0 +1,9 @@
+
+select initcap(name) as GUESTNAME
+from guest 
+where lower(address) like '%ooty%' 
+order by GUESTNAME;
+
+
+
+
