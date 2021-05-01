@@ -1,0 +1,6 @@
+select guestID, name,coalesce(phone, address, email) as CONTACT_DETAILS
+from guest 
+order by guestID;
+
+
+
