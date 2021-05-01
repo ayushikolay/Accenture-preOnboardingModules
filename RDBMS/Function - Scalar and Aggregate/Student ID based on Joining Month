@@ -1,0 +1,8 @@
+
+select distinct studid
+from registration
+where to_char(doj,'MM')='06'
+order by studid;
+
+
+
