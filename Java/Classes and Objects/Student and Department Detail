@@ -1,0 +1,216 @@
+/*
+Student and Department Detail
+Create a class Department with the following private member variables
+
+int did
+String dname
+Include appropriate getters and setters method in Department class.
+
+Create a class Student with the following private member variables
+
+int sid
+String sname
+Department department
+Include appropriate getters and setters method in Student class.
+
+Create a TestMain class which has main method.
+
+In addition to main method, create a method 
+
+           public static Student createStudent() -  All input as shown in the sameple input should be got in this method.  Set the values to the Student object and return that object
+
+Note : In main method, invoke the createStudent method and print the details of the object returned by that method.
+
+Sample Input 1:
+
+Enter the Department id:
+100
+Enter the Department name:
+Computerscience
+
+Enter the Student id:
+123
+Enter the Student name:
+sudha
+Sample Output 1:
+
+Department id:100
+Department name:Computerscience
+Student id:123
+Student name:sudha
+
+*/
+
+*********************************************************************************************************************************************************************************************************************
+
+
+Student.java
+.........................................
+
+public class Student
+{
+    private int sid;
+    private String sname;
+    private Department department;
+    
+    public void setSid(int sid)
+    {
+        this.sid=sid;
+    }
+    
+    public int getSid()
+    {
+        return this.sid;
+    }
+    
+    
+    public void setSname(String sname)
+    {
+        this.sname=sname;
+    }
+    
+    public String getSname()
+    {
+        return this.sname;
+    }
+    
+    public void setDepartment(Department department)
+    {
+        this.department=department;
+    }
+    
+    public Department getDepartment()
+    {
+        return this.department;
+    }
+    
+}
+
+*****************************************************************************************************************************************************************************************
+
+Department.java
+................................................
+
+public class Department
+{
+    private int did;
+    private String dname;
+    
+    public void setDid(int did)
+    {
+        this.did=did;
+    }
+    
+    public int getDid()
+    {
+        return this.did;
+    }
+    
+    public void setDname(String dname)
+    {
+        this.dname=dname;
+    }
+    
+    public String getDname()
+    {
+        return this.dname;
+    }
+    
+    
+    
+    
+    
+}
+
+
+
+***************************************************************************************************************************************************************************************************
+
+
+TestMain.java
+.............................................
+
+
+import java.util.*;
+
+public class TestMain
+{
+    
+    public static void main (String[] args) {
+        
+        Student st=createStudent();
+        
+        System.out.println("Department id:"+st.getDepartment().getDid());
+        System.out.println("Department name:"+st.getDepartment().getDname());
+        System.out.println("Student id:"+st.getSid());
+        System.out.println("Student name:"+st.getSname());
+        
+        
+    }
+    
+    public static Student createStudent()
+    {
+        Scanner sc=new Scanner(System.in);
+        Department d=new Department();
+        Student s=new Student();
+       System.out.println("Enter the Department id:");
+       
+       d.setDid(sc.nextInt());
+       sc.nextLine();
+       System.out.println("Enter the Department name:");
+       d.setDname(sc.nextLine());
+       
+       System.out.println("Enter the Student id:");
+       s.setSid(sc.nextInt());
+       sc.nextLine();
+       
+       System.out.println("Enter the Student name:");
+       s.setSname(sc.nextLine());
+       s.setDepartment(d);
+       
+       return s;
+       
+       
+    }
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
