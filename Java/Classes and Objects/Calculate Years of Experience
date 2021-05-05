@@ -1,0 +1,127 @@
+/*
+Calculate Years of Experience
+
+
+
+Calculate Years of Experience
+
+Get the date of joining(as String) as input from the user.  Calculate the number of years of experience and display the same.
+
+Assume
+
+1)    the given date is a valid date and the format is dd/MM/yyyy.
+
+2)    The current date is 15/12/2020
+
+ 
+
+Sample Input 1
+
+21/8/2006
+
+Sample Output 1
+
+14 years
+
+Hint : Create two Date objects- one for the input date and other for the current date. (Say d1 and d2). Find the difference between these two dates in milliseconds as
+
+d2.getTime() -  d1.getTime().
+
+Convert this milliseconds to number of years
+*/
+
+
+
+****************************************************************************************************************************************************************************
+
+
+
+import java.util.Scanner;
+import java.util.*;
+import java.text.*;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.text.ParseException;
+
+public class Main {
+
+	public static void main(String[] args)throws ParseException {
+		Scanner sc=new Scanner(System.in);
+		
+	    String str1=sc.nextLine();
+	   
+	    SimpleDateFormat sdf=new SimpleDateFormat("dd/MM/yyyy");
+	    
+	    String str2="15/12/2020";
+	    
+	    sdf.setLenient(false);
+	    
+	    Date d1,d2;
+	    
+	    try 
+	    {
+	        d1=sdf.parse(str1);
+	        d2=sdf.parse(str2);
+	      
+	    }catch(ParseException ex)
+	    {
+	        return;
+	    }
+	   
+	   long time=(d2.getTime()-d1.getTime())/1000/60/60/24/365;
+	   
+	   System.out.println(time+" years");
+	   
+	   
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
