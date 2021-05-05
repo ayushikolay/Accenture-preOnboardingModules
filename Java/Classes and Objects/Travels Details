@@ -1,0 +1,334 @@
+/*
+Travel Details
+
+
+Create a class Person with the following private member variables
+
+String name
+char gender
+int age
+Include appropriate getters and setters method 
+Create a class BusTicket with the following private member variables
+
+int ticketNo
+float ticketPrice
+float totalAmount
+Person person
+Include appropriate getters and setters method 
+
+Write the following method in the BusTicket class
+void calculateTotal()—this method should calculate the total and set it based on the discount given below:
+
+For Children whose age is less than 16, give 50% discount
+For Senior citizen whose age is greater than or equal to 60 give 25% discount
+For Ladies give 10% discount
+No discount for remaining category. 
+Based on above condition calculate total price. 
+Create TestMain class which has main method and do the following input and output process .
+
+To get the input write a method
+
+public static BusTicket getTicketDetails() - Get the inputs relevant to BusTicket in this method and return the BusTicket object.  Call this method in the main method, using the returned object invoke the method calculateTotal and print the output accordingly 
+
+Note: Do not create a static reference for the Scanner class, create a scanner object inside the method.
+
+Sample input 1:
+
+Enter the passenger name:
+vivek
+Enter the gender(M or F / m or f):
+M
+Enter the age:
+16
+Enter the ticket no:
+123
+Enter the ticket price:
+100.0
+
+Sample Output 1
+
+Ticket no:123
+Passenger Name:vivek
+Price of a ticket : 100.0
+Total Amount : 100.0
+
+
+
+Sample input 2:
+Enter the passenger name:
+Priya
+Enter the gender(M or F / m or f):
+F
+Enter the age:
+61
+Enter the ticket no:
+140
+Enter the ticket price:
+500.0
+
+Sample Output 1
+
+Ticket no:140
+Passenger Name:Priya
+Price of a ticket : 500.0
+Total Amount : 375.0
+
+*/
+
+
+******************************************************************************************************************************************************************************************
+Person.java
+....................
+
+public class Person 
+{
+    private String name;
+    private char gender;
+    private int age;
+    
+    
+    public void setName(String name)
+    {
+        this.name=name;
+    }
+    
+    public String getName()
+    {
+        return this.name;
+    }
+    
+    public void setGender(char gender)
+    {
+        this.gender=gender;
+    }
+    
+    public char getGender()
+    {
+        return this.gender;
+    }
+    
+    
+    public void setAge(int age)
+    {
+        this.age=age;
+    }
+    
+    public int getAge()
+    {
+        return this.age;
+    }
+    
+    
+    
+    
+}
+
+
+**********************************************************************************************************************************************************************************************
+
+BusTicket.java
+.......................................................
+
+
+public class BusTicket
+{
+    
+    private int ticketNo;
+    private float ticketPrice;
+    private float totalAmount;
+    private Person person=new Person();
+    
+  //  int age=person.getAge();
+   // char g=person.getGender();
+    
+    
+    public void setTicketNo(int ticketNo)
+    {
+        this.ticketNo=ticketNo;
+    }
+    
+    public int getTicketNo()
+    {
+        return this.ticketNo;
+    }
+    
+    
+    public void setTicketPrice(float ticketPrice)
+    {
+        this.ticketPrice=ticketPrice;
+    }
+    
+    public float getTicketPrice()
+    {
+        return this.ticketPrice;
+    }
+    
+    
+    public void setTotalAmount(float totalAmount)
+    {
+        this.totalAmount=totalAmount;
+    }
+    
+    public float getTotalAmount()
+    {
+        return this.totalAmount;
+    }
+    
+    public void setPerson(Person person)
+    {
+        this.person=person;
+    }
+    
+    public Person getPerson()
+    {
+        return this.person;
+    }
+    
+    
+    public void calculateTotal()
+    {
+        int age=person.getAge();
+        char g=person.getGender();
+        
+       if(age < 16)
+       {
+           totalAmount=ticketPrice/2;
+           setTotalAmount(totalAmount);
+       }
+       else if(age >= 60)
+       {
+           totalAmount=(3*ticketPrice)/4;
+           setTotalAmount(totalAmount);
+           
+       }
+       else if(g == 'f' || g =='F')
+       {
+           totalAmount=(9*ticketPrice)/10;
+           setTotalAmount(totalAmount);
+       }
+       else 
+       {
+           setTotalAmount(ticketPrice);
+       }
+        
+        
+    }
+    
+    
+    
+    
+}
+
+
+
+
+
+
+***************************************************************************************************************************************************************************************
+
+
+TestMain.java
+
+
+
+
+
+import java.util.*;
+public class TestMain 
+{
+    
+    public static BusTicket getTicketDetails()
+    {
+        Scanner sc=new Scanner(System.in);
+        Person p=new Person();
+        BusTicket b=new BusTicket();
+        
+        System.out.println("Enter the passenger name:");
+        p.setName(sc.nextLine());
+        
+        System.out.println("Enter the gender(M or F / m or f):");
+        p.setGender(sc.next().charAt(0));
+        
+        System.out.println("Enter the age:");
+        p.setAge(sc.nextInt());
+        
+        System.out.println("Enter the ticket no:");
+        b.setTicketNo(sc.nextInt());
+        
+        System.out.println("Enter the ticket price:");
+        float ticketPrice=sc.nextFloat();
+        b.setTicketPrice(ticketPrice);
+        
+        
+        b.setPerson(p);
+        
+        return b;
+        
+        
+        
+    }
+    
+    public static void main(String args[])
+    {
+        BusTicket b=getTicketDetails();
+        
+        b.calculateTotal();
+        
+        System.out.println("Ticket no:"+b.getTicketNo());
+        System.out.println("Passenger Name:"+b.getPerson().getName());
+        System.out.println("Price of a ticket : "+b.getTicketPrice());
+        System.out.println("Total Amount : "+b.getTotalAmount());
+        
+        
+        
+    }
+    
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
