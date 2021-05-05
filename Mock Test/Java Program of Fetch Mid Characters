@@ -1,0 +1,70 @@
+/*
+Write a Java Program to read a string from the user and fetch the middle characters that feature in the center of the string from the input string and return it as string output.
+
+Note:
+
+
+ 
+1. The Minimum string size should be of 3 characters. If not, print “The string <string> is too short”.
+2. String should have only Alphabets. If not, print “The string should not have <special character/ numbers>”.
+Assumption:
+
+The Input string should be without space.
+
+Sample Input 1:
+
+Enter the String:
+
+This
+
+Sample Output 1:
+
+Middle characters:
+
+hi
+
+Sample Input 2:
+
+Enter the String:
+
+Paragraph
+
+Sample Output 2:
+
+Middle characters:
+
+g
+
+Sample Input 3:
+
+Enter the String:
+
+am
+
+Sample Output 3:
+
+The string am is to short
+
+Sample Input 1:
+
+Enter the String:
+
+a??@e
+
+Sample Output 1:
+
+Middle characters:
+
+The string should not have ??@
+
+*/
+
+
+
+
+
+
+
+
+
+
