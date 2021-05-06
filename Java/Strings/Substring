@@ -1,0 +1,59 @@
+/*
+SubString
+
+Write a java program to find the substring for a given range.
+
+Sample Input1:
+
+Superstition
+
+5
+
+10
+
+Sample Output1:
+
+stiti
+*/
+
+
+
+import java.util.*;
+public class Main
+{
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        String str=sc.nextLine();
+        int s=sc.nextInt();
+        int e=sc.nextInt();
+        
+        String sub=str.substring(s,e);
+       System.out.println(sub);
+        
+        
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
