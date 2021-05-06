@@ -1,0 +1,57 @@
+/*
+
+String length
+
+Write a java program to find the length of the string is even or odd.
+
+Sample Input1:
+
+Can I change the room
+
+Sample Output:
+
+21 Odd
+
+
+Sample Input2:
+
+Entrepreneur
+
+Sample Output2:
+
+12 Even
+
+*/
+
+
+import java.util.*;
+public class Main
+{
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        String str=sc.nextLine();
+        
+        int len=str.length();
+        
+        String isOdd="";
+        if(len%2==0)
+        {
+            isOdd="Even";
+        }
+        else
+        {
+            isOdd="Odd";
+        }
+        System.out.println(len+" "+isOdd);
+        
+    }
+}
+
+
+
+
+
+
+
+
