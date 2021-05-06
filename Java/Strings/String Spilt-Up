@@ -1,0 +1,44 @@
+/*
+String Spilt-Up
+
+Write a java program to split the given string.
+
+Sample Input1:
+
+People:Who:Are:Crazy
+
+:
+
+Sample Output1:
+
+People
+
+Who
+
+Are
+
+Crazy
+*/
+
+import java.util.*;
+public class Main
+{
+    public static void main(String args[])
+    {
+        
+        Scanner sc=new Scanner(System.in);
+        
+        String str=sc.nextLine();
+        
+        String ch=sc.next();
+        
+        String s1[]=str.split(ch);
+        
+        for(String s:s1)
+        {
+            System.out.println(s);
+        }
+        
+        
+    }
+}
