@@ -1,0 +1,199 @@
+/*
+PF and Salary Calculation
+
+EPFO is the world's largest Social Security Organisation in terms of clientele and the volume of financial transactions undertaken. At present it maintains more than 10 crore accounts pertaining to its members across 122 locations in India. The regional office of Tamilnadu wants to maintain the provident fund details of the employee who has been working as full time (permanent),so that it would be easy to claim the PF online.Help them to calculate pf. 
+
+Create a public class Employee with the following private variables:
+
+String name
+float salary
+float netsalary
+Write the necessary public getters and setters.
+
+Create a public class PermanentEmployee (which should inherit Employee) with the following private varibles:
+
+float pfpercentage
+float pfamount
+Write the necessary public getters and setters.
+
+Implement a method void findNetSalary() in the PermanentEmployee class which calculates pfamount and deduct it from the salary to find the net salary and set the pf amount and netsalary to the attribute.
+
+Salary should not be less than or equal to zero and pf % should be a valid positive number,it can be zero. 
+
+Ensure the values given meet the criteria using the method boolean validateInput(), which has to be defined inside the class PermanentEmployee. Check for the salary and pf percentage validity.  If valid, return true.  Else, return false.
+
+Create a class Main and write the main method.
+
+In the main method, before invoking the findNetSalary method, validate the input by invoking the validateInput method.  If the input is invalid display error message as "Error!!!  Unable to calculate the NetSalary." else display the net salary as shown in the sample.
+
+Sample Input 1:
+
+Enter the name:
+Sudha
+Enter the salary:
+20000
+Enter the pfpercentage:
+7.5
+
+Sample Output 1:
+
+Employee Name:Sudha
+PF Amount:1500.00
+Netsalary:18500.00
+
+Sample Input 2:
+
+Enter the name:
+Polson
+Enter the salary:
+25000
+Enter the pfpercentage:
+-1.5
+
+Sample Output 2:
+Error!!! Unable to calculate the NetSalary.
+*/
+
+*********************************************************************************************************
+
+Employee.java
+.............................
+
+
+public class Employee
+{
+    private String name;
+    private float salary;
+    private float netsalary;
+    
+    public void setName(String name)
+    {
+        this.name=name;
+    }
+    
+    public String getName()
+    {
+        return this.name;
+    }
+    
+    public void setSalary(float salary)
+    {
+        this.salary=salary;
+    }
+    
+    public float getSalary()
+    {
+        return this.salary;
+    }
+    
+    public void setNetsalary(float netsalary)
+    {
+        this.netsalary=netsalary;
+    }
+    public float getNetsalary()
+    {
+        return this.netsalary;
+    }
+    
+    
+}
+
+********************************************************************************************
+PermanentEmployee.java
+.........................
+
+public class PermanentEmployee extends Employee
+{
+    private float pfpercentage;
+    private float pfamount;
+    
+    public void setPfpercentage(float pfpercentage)
+    {
+        this.pfpercentage=pfpercentage;
+    }
+    
+    public float getPfpercentage()
+    {
+        return this.pfpercentage;
+    }
+    
+    public void setPfamount(float pfamount)
+    {
+        this.pfamount=pfamount;
+    }
+    
+    public float getPfamount()
+    {
+        return this.pfamount;
+    }
+    
+    public void findNetSalary()
+    {
+        float x=0;
+        pfamount=(super.getSalary()*pfpercentage)/100;
+        x=super.getSalary()-pfamount;
+        setNetsalary(x);
+        
+    }
+    
+    public boolean validateInput()
+    {
+        if(super.getSalary()>0 && (pfpercentage>=0))
+        {
+            return true;
+        }
+        
+        return false;
+        
+    }
+    
+    
+    
+}
+
+********************************************************************************
+
+Main.java
+...............................
+
+
+import java.util.*;
+public class Main 
+{
+    public static void main (String[] args) {
+        
+        Scanner sc=new Scanner(System.in);
+        
+        PermanentEmployee pe=new PermanentEmployee();
+        System.out.println("Enter the name:");
+        pe.setName(sc.nextLine());
+        
+        System.out.println("Enter the salary:");
+        pe.setSalary(sc.nextFloat());
+        
+        System.out.println("Enter the pfpercentage:");
+        pe.setPfpercentage(sc.nextFloat());
+        
+        if(pe.validateInput() == false)
+        {
+            System.out.println("Error!!! Unable to calculate the NetSalary.");
+            return;
+        }
+        
+        System.out.println("Employee Name:"+pe.getName());
+        pe.findNetSalary();
+        System.out.println("PF Amount:"+pe.getPfamount());
+        System.out.println("Netsalary:"+pe.getNetsalary());
+        
+    }
+    
+    
+}
+
+
+
+
+
+
+
+
