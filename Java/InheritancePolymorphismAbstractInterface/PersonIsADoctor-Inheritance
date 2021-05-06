@@ -1,0 +1,49 @@
+
+ abstract public class Person
+{
+//include the attribute specified in the question
+
+      String name;
+     
+     
+
+}
+
+
+
+public class Doctor extends Person // inherit name from Person in Doctor class
+{
+//inlcude the required attribute and method as per the problem statement
+   
+  String specializationType;
+  
+  public String displayDetails()
+  {
+      return (name+" is a "+specializationType);
+  }
+ 
+
+}
+
+
+
+
+import java.util.*;
+public class Driver
+{
+public static void main(String[] args)
+{
+//create a object for Doctor, set the name and specialization, invoke the method and print the result
+
+    Doctor d=new Doctor();
+    
+    System.out.println(d.displayDetails());
+
+
+}
+
+
+}
+
+
+
