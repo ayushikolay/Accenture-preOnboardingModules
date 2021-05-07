@@ -1,0 +1,459 @@
+/*
+
+PhoneBook Manipulation
+
+Airone mobile services needs to store their customer details in the company portal. The details are customer's first and last name, phone number, and email address. Help the company develop an application to maintain the details of their customer systematically. 
+
+You are provided with a class Contact with the following attributes as private.
+
+String firstName
+
+String lastName
+
+long  phoneNumber
+
+String emailId
+
+A 4 argument constructor and appropriate setters and getters to store and retrieve the details are also provided.
+
+Create a class PhoneBook with a private attribute
+
+List<Contact> phoneBook = new ArrayList<Contact>();
+
+Write the getters and setters.
+
+Write the following methods in the PhoneBook class.
+
+public void addContact(Contact contactObj) – This method should add the contact object to the phoneBook list.
+
+public List<Contact> viewAllContacts() – This method should return the list of all contacts available.
+
+public Contact viewContactGivenPhone(long phoneNumber) -  This method should return the contact details which has the phoneNumber given as parameter.
+
+public boolean removeContact(long phoneNumber) -  This method should remove the contact details which has the phoneNumber given as parameter.  If removed return true.  Else if the phone number is not available return false.
+
+Write a class Main with the main method.  Create the menu as shown in the Sample Input and Output and invoke the corresponding methods as per the choice provided.
+
+
+Sample Input and Output 1:
+
+Menu
+
+1.Add Contact
+
+2.Display all contacts
+
+3.Search contact by phone 
+
+4.Remove contact
+
+5.Exit
+
+Enter your choice: 1
+
+Add a Contact:
+
+Enter the First Name: John
+
+Enter the Last Name: Michael
+
+Enter the Phone No.: 9787878900
+
+Enter the Email: John@gmail.com
+
+Menu
+
+1.Add Contact
+
+2.Display all contacts
+
+3.Search contact by phone 
+
+4.Remove contact
+
+5.Exit
+
+Enter your choice: 1
+
+Add a Contact:
+
+First Name: Jhonty
+
+Last Name: Rhodes
+
+Phone No.: 9787888900
+
+Email: Jhonty@gmail.com
+
+Menu
+
+1.Add Contact
+
+2.Display all contacts
+
+3.Search contact by phone 
+
+4.Remove contact
+
+5.Exit
+
+Enter your choice: 2
+
+The contacts in the List are:
+
+First Name: John
+
+Last Name: Michael
+
+Phone No.: 9787878900
+
+Email: John@gmail.com
+
+First Name: Jhonty
+
+Last Name: Rhodes
+
+Phone No.: 9787888900
+
+Email: Jhonty@gmail.com
+
+Menu
+
+1.Add Contact
+
+2.Display all contacts
+
+3.Search contact by phone 
+
+4.Remove contact
+
+5.Exit
+
+Enter your choice: 3
+
+Enter the Phone number to search contact:9787888900
+
+The contact is:
+
+First Name: Jhonty
+
+Last Name: Rhodes
+
+Phone No.: 9787888900
+
+Email: Jhonty@gmail.com
+
+Menu
+
+1.Add Contact
+
+2.Display all contacts
+
+3.Search contact by phone 
+
+4.Remove contact
+
+5.Exit
+
+Enter your choice: 4
+
+Enter the Phone number to remove :9787888900
+
+Do you want to remove the contact (Y/N): Y
+
+The contact is successfully deleted.
+
+Menu
+
+1.Add Contact
+
+2.Display all contacts
+
+3.Search contact by phone 
+
+4.Remove contact
+
+5.Exit
+
+Enter your choice: 5
+
+*/
+
+*********************************************************************************
+
+
+
+PhoneBook.java
+..............................................
+
+import java.util.*;
+
+public class PhoneBook
+{
+    
+    private List<Contact> phoneBook=new ArrayList<Contact>();
+    
+    public void setPhoneBook(List<Contact> obj)
+    {
+        phoneBook=obj;
+    }
+    
+    public List<Contact> getPhoneBook()
+    {
+        return phoneBook;
+    }
+    
+    
+    
+    public void addContact(Contact contactObj)
+    {
+        phoneBook.add(contactObj);
+    }    
+    
+    
+    public List<Contact> viewAllContacts()
+    {
+        return phoneBook;
+    }
+    
+    public Contact viewContactGivenPhone(long phoneNumber)
+    {
+        
+        for(Contact co1:phoneBook)
+        {
+            if(co1.getPhoneNumber()==phoneNumber)
+            {
+                return co1;
+            }
+        }
+        return null;
+        
+    }
+    
+    public boolean removeContact(long phoneNumber)
+    {
+        for(Contact c:phoneBook)
+        {
+            if(c.getPhoneNumber()== phoneNumber)
+            {
+                phoneBook.remove(c);
+                return true;
+                
+            }
+        }
+        return false;
+        
+    }
+    
+    
+}
+
+
+****************************************************************************************************************************************
+
+Contact.java
+...............................................
+
+import java.util.*;
+public class Contact {
+
+	private String firstName;
+	private String lastName;
+	private long  phoneNumber;
+	private String emailId;
+	public String getFirstName() {
+		return firstName;
+	}
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	public String getLastName() {
+		return lastName;
+	}
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+	public long getPhoneNumber() {
+		return phoneNumber;
+	}
+	public void setPhoneNumber(long phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+	public String getEmailId() {
+		return emailId;
+	}
+	public void setEmailId(String emailId) {
+		this.emailId = emailId;
+	}
+	public Contact(String firstName, String lastName, long phoneNumber,
+			String emailId) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.phoneNumber = phoneNumber;
+		this.emailId = emailId;
+	}
+}
+
+
+************************************************************************************************************************************************
+
+
+
+
+
+
+import java.util.*;
+
+public class Main 
+{
+    
+    public static void main (String[] args) {
+        
+        
+        PhoneBook objMain=new PhoneBook();
+        
+        Scanner sc=new Scanner(System.in);
+        
+        int n=0;
+        do 
+        {
+            System.out.println("Menu");
+            System.out.println("1.Add Contact");
+            System.out.println("2.Display all contacts");
+            System.out.println("3.Search contact by phone");
+            System.out.println("4.Remove contact");
+            System.out.println("5.Exit");
+            
+            
+            System.out.print("Enter your choice: ");
+             n=sc.nextInt();
+            sc.nextLine();
+            
+            if(n == 1)
+            {
+                System.out.println("\nAdd a Contact:");
+                
+                System.out.print("Enter the First Name: ");
+                String first=sc.nextLine();
+                
+                System.out.print("\nEnter the Last Name: ");
+                String last=sc.nextLine();
+                
+                System.out.print("\nEnter the Phone No.: ");
+                long p=sc.nextLong();
+                sc.nextLine();
+                
+                System.out.print("\nEnter the Email: ");
+                String em=sc.nextLine();
+                
+                Contact co=new Contact(first,last,p,em);
+                
+                objMain.addContact(co);
+                
+            }
+            else if(n == 2)
+            {
+                
+                System.out.println("The contacts in the List are:");
+                List<Contact> obj=objMain.viewAllContacts();
+                
+                for(Contact temp:obj)
+                {
+                    System.out.println("First Name:"+temp.getFirstName());
+                    System.out.println("Last Name:"+temp.getLastName());
+                    System.out.println("Phone No.:"+temp.getPhoneNumber());
+                    System.out.println("Email:"+temp.getEmailId());
+                    
+                }
+                
+                
+            }
+            else if(n == 3)
+            {
+                System.out.print("Enter the Phone number to search contact:");
+                long ph=sc.nextLong();
+                sc.nextLine();
+                
+                
+                Contact obj1=objMain.viewContactGivenPhone(ph);
+                System.out.println("\nThe contact is:");
+                System.out.println("First Name:"+obj1.getFirstName());
+                System.out.println("Last Name:"+obj1.getLastName());
+                System.out.println("Phone No.:"+obj1.getPhoneNumber());
+                System.out.println("Email:"+obj1.getEmailId());
+                
+                
+            }
+            else if(n == 4)
+            {
+                
+                System.out.print("Enter the Phone number to remove :");
+                Long n1=Long.parseLong(sc.nextLine());
+                sc.nextLine();
+                System.out.print("\nDo you want to remove the contact (Y/N):");
+                char ch=sc.nextLine().charAt(0);
+                
+                if(ch == 'Y')
+                {
+                    boolean f1=objMain.removeContact(n1);
+                    if(f1)
+                    {
+                        System.out.println("\nThe contact is successfully deleted");
+                    }
+                    else 
+                    {
+                        System.out.println("\nContact is not found");
+                    }
+                }
+                if(ch == 'N')
+                {
+                    System.out.println("\nok");
+                }
+                
+                
+            }
+            else 
+            {
+                return;
+            }
+            
+        }while(n!=5);
+        
+        
+    }
+    
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
