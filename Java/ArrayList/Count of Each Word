@@ -1,0 +1,160 @@
+/*
+Count of Each Words
+
+Miss.Jane, an experienced English professor, gives practice tests to her students to improve their written skills. Everyday students write an article and they submit it to Jane. Jane is particular that the students use only special characters like , ; : . ? ! in the article.
+
+[Note : Using the above mentioned special characters will help to split the words in a sentence. 
+
+All other special characters when used will be considered as a part of the word itself. ]
+
+
+She counts the total number of words used and the count of each word in the article. Based on this analysis she gives her feedback to the students.  
+
+Difficulty arises when the number of students increase. So she wanted to automate the process in the following format. Help her to write a java program to display the words and the number of times it has been used in the article and to display the words using lower case and in alphabetical order.
+
+
+Sample Input 1 :
+hello Hello HEllo hi hi: hi! Welcome,   welcome
+
+Sample Output 1 :
+
+Number of words 8
+
+Words with the count
+
+hello: 3
+
+hi: 3
+
+welcome: 2
+
+
+Sample Input 2 :
+
+Use Arrays.sort method
+
+Sample Output 2
+
+
+Number of words 4
+
+Words with the count
+
+use: 1
+
+arrays: 1
+
+sort: 1
+
+method: 1
+*/
+
+
+
+******************************************************************************************
+
+
+
+
+
+//import the necessary packages if needed
+import java.util.*;
+@SuppressWarnings("unchecked")//Do not delete this line
+public class CountOfWords
+{
+    public static void main (String[] args) {
+    
+   
+         Scanner sc=new Scanner(System.in);
+         
+         String s=sc.nextLine();
+         
+         
+         StringBuilder sb=new StringBuilder(s);
+         s=s.toLowerCase();
+        String longString="\"long\"";
+         
+         
+         for(int i=0;i<sb.length();i++)
+         {
+             if(!(Character.isLetter(sb.charAt(i))))
+             {
+                 if(sb.charAt(i)!=' ' && sb.equals(longString))
+                 {
+                     if(sb.charAt(i)!='\'')
+                     {
+                         sb.deleteCharAt(i);
+                        System.out.println(sb);
+                     }
+                 }
+             }
+             
+             
+             
+         }
+         
+         String str[]=s.split("[\\s,;:.?!]+");
+         Set<String> words=new HashSet<String>(Arrays.asList(str));
+         List<String> wordList=new ArrayList<String>(words);
+         
+         
+         Collections.sort(wordList);
+         int count=0;
+         
+         System.out.println("Number of words "+str.length);
+         System.out.println("Words with the count");
+         
+         int longCount=0;
+         
+         for(String word:wordList)
+         {
+             for(String temp:str)
+             {
+                 if(word.equals(temp))
+                 {
+                     count++;
+                     
+                 }
+             }
+             
+             if(!word.equals(longString))
+             {
+                 System.out.println(word+": "+count);
+             }
+             else 
+             longCount=count;
+             
+             count=0;
+             
+             boolean flag=false;
+             
+             for(String str2:str)
+             {
+                 if(str2.equals(longString))
+                 {
+                     flag=true;
+                 }
+             }
+             
+             if(flag == true)
+             {
+                 System.out.println(longString+": "+longCount);
+             }
+             
+         }
+         
+         
+    }  
+         
+         
+}
+
+
+
+
+
+
+
+
+
+
