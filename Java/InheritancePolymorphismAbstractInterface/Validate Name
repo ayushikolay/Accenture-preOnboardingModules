@@ -1,0 +1,199 @@
+/*
+Validate Name
+Create a public functional interface Validate with  a method :
+
+public boolean validateName(String name);
+
+Create a public class ValidateUtility with the below methods :
+
+public static Validate validateEmployeeName() – The lambda expression  for the validateName  method must return true if the name is valid and return false if the name is invalid. 
+
+In this case, the name is valid if it contains alphabets and space and it should contain minimum 5 characters and maximum 20 characters.
+
+public static Validate validateProductName() – The lambda expression  for the validateName  method must return true if the name is valid and return false if the name is invalid. 
+
+In this case, the name is valid if the first character is an alphabet followed by 5 digits.
+
+Write the main method in ValidateUtility  class.
+
+             -  Get the value for employee name and product name. 
+
+             -  Invoke the validateEmployeeName method
+
+             -  Capture the object of Validate returned by the static method.
+
+             -  Invoke the validateName method for the employee name received as input  from the user.
+
+             -  Display the result as shown in sample output. 
+
+             -  Next, invoke the validateProductName method
+
+             -  Capture the object of Validate returned by the static method.
+
+             -  Invoke the validateName method for the product name received as input  from the user.
+
+             -  Display the result as shown in sample output. 
+
+Note  :  Implement all the static methods mentioned above using lambda expression.  Don’t create object for the interface using new keyword.
+
+Sample Input 1 :
+
+Pinky Rose
+
+A8546
+
+Sample Output 1 :
+
+Employee name is valid
+
+Product name is invalid
+
+
+
+Sample Input 2 :
+
+Rahul@123
+
+X82456
+
+Sample Output 1 :
+
+Employee name is invalid
+
+Product name is valid
+*/
+
+*********************************************************************************************************
+
+
+Validate.java
+...............................
+
+
+public interface Validate{
+    //write the abstract method 
+    
+    public boolean validateName(String name);
+    
+    
+    
+}
+
+
+*********************************************************************************************************************************
+
+ValidateUtility.java
+...................................
+
+import java.util.*;
+import java.util.regex.*;
+
+public class ValidateUtility
+{
+    public static void main(String args[])
+    {
+       Scanner sc=new Scanner(System.in);
+       String empName=sc.nextLine();
+       String prodName=sc.nextLine();
+       
+       Validate v1=validateEmployeeName();
+       
+       if(v1.validateName(empName))
+       {
+           System.out.println("Employee name is valid");
+       }
+       else 
+       {
+           System.out.println("Employee name is invalid");
+       }
+       
+       
+       Validate v2=validateProductName();
+       if(v2.validateName(prodName))
+       {
+           System.out.println("Product name is valid");
+       }
+       else 
+       {
+           System.out.println("Product name is invalid");
+       }
+       
+       
+    }
+    
+    public static Validate validateEmployeeName() 
+    {
+        //fill code here
+        Validate n=(n1)->{
+            Pattern p=Pattern.compile("[a-zA-Z ]+");
+            Matcher matcher=p.matcher(n1);
+            if(matcher.matches()==true && (n1.length()>=5 && n1.length()<=20))
+            {
+                return true;
+            }
+            
+            return false;
+            
+        };
+        
+        return n;
+        
+        
+    }
+    
+    public static Validate validateProductName() 
+    {
+        
+        Validate n2=(n1)->{
+            Pattern p=Pattern.compile("[a-zA-Z]{1}[0-9]{5}");
+            Matcher matcher=p.matcher(n1);
+            if(matcher.matches())
+            {
+                return true;
+            }
+            return false;
+            
+        };
+        return n2;
+        
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
