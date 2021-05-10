@@ -1,0 +1,146 @@
+/*
+
+Some teams qualified for the 2014 World Cup. The score of the teams were stored in an array in sorted order and array index is the represents the team. Index 0 represents the Team 1; index 1 represents the Team 2 and so on.  If a score is given, then should find out which team got that score with a O(log(n)) time.  
+
+ Since Ram wanted to solve this puzzle with binary search and he decided to write binary search himself.  But he cannot remember the logic of binary search .  Help Ram to write the program.
+
+ Note:
+
+Create the main() inside the class 'BinarySearch'
+
+Function signature : public static int binarySearch(int[] ar,int size,int key)
+
+
+
+Input and Output Format:
+
+Refer sample input and output for formatting specifications.
+
+Sample Input and Output 1:
+
+Enter the number of Teams:
+
+5
+
+Enter the score:
+
+12
+
+16
+
+23
+
+45
+
+67
+
+Enter the score to be searched:
+
+23
+
+23 is the score of Team 3
+
+ 
+
+Sample Input and Output 2:
+
+Enter the number of Teams:
+
+4
+
+Enter the score:
+
+12
+
+34
+
+45
+
+77
+
+Enter the score to be searched:
+
+59
+
+Score Not Found
+*/
+
+*************************************************************************************************************************************
+
+
+
+
+
+
+
+
+
+import java.util.Scanner;
+class BinarySearch
+{
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter the number of Teams:");
+        int num=sc.nextInt();
+        int arr[]=new int[num];
+        System.out.println("Enter the score:");
+        for(int i=0;i<num;i++)
+        arr[i]=sc.nextInt();
+        System.out.println("Enter the score to be searched:");
+        int k=sc.nextInt();
+        binarySearch(arr,0,num-1,k);
+    }
+    public static void binarySearch(int arr[],int first,int last,int k)
+    {
+        int mid=(first+last)/2;
+        while(first<=last)
+        {
+            if(arr[mid]<k)
+            first=mid+1;
+            else if(arr[mid]==k)
+            {
+                System.out.println(k+" is the score of Team "+(mid+1));
+                break;
+            }
+            else
+            last=mid-1;
+            mid=(first+last)/2;
+        }
+        if(first>last)
+        System.out.println("Score Not Found");
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
