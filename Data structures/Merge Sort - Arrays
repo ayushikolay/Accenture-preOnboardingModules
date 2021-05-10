@@ -170,7 +170,7 @@ class MergeSortDriver
 		printArray(arr);
 	}
 }
-/* This code is contributed by Rajat Mishra */
+
 
 
 
