@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Calculator</title>
+    </head>
+    
+    <body>
+        
+        <h1>Calculator</h1>
+        
+        <header >
+        <img name="headerimg" src="calculator.jpg" height="300" width="400"/>
+        </header>
+        
+        <form>
+            
+            <div>
+            <label>Input1</label>
+            <input type="number" name="input1">
+            </div>
+            
+            <br>
+            
+            <div>
+                <label>Input2</label>
+                <input type="number" name="input2"/>
+            </div>
+            <br>
+            
+            <div>
+                
+                <label>Select Operation</label>
+                <select name="operation">
+                <option value="Select..">Select..</option>
+                <option value="ADD">ADD</option>
+                <option value="SUBTRACT">SUBTRACT</option>
+                <option value="MULTIPLY">MULTIPLY</option>
+                <option value="DIVIDE">DIVIDE</option>
+                
+                </select>
+                
+            </div>
+            
+            <br>
+            
+            <input type="image" name="submit" src="calc.jpg" width="80" height="80" alt="submit"/>
+            <input type="image" name="reset" src="reset.jpg" width="80" height="80" alt="reset"/>
+            
+            
+        </form>
+        
+        
+    </body>
+    
+    
+    
+</html>
