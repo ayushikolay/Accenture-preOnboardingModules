@@ -1,0 +1,183 @@
+/*
+Implement Stack using recursion and reverse the stack content. Stack should be represented using a linked list. Generate linked list in an ordered set of data elements, each containing a link to its successor.
+
+Requirements:
+class Node
+{
+    int value;
+   Node next;
+};
+
+int createStack();
+
+void displayStack();
+
+void stackReverse();
+
+
+Note: Implement the main() inside the class 'StackDriver'
+
+Sample Input/Output 1: [Values given in bold represents the input]
+Enter length of List: 3                                                        
+                                                                               
+Elements in Stack                                                              
+1 2 3                                                                     
+                                                                                                                
+Elements in the stack after reversal                                           
+3 2 1 
+Note: In the above sample the input provided by the user is 3 which represents "length of List" 
+Sample Input/Output 2:
+Enter length of List: 5                                                       
+                                                                               
+Elements in Stack                                                              
+1 2 3 4 5                                                                   
+                                                                                                                
+Elements in the stack after reversal                                           
+5 4 3 2 1
+
+Sample Input/Output 3:
+
+Enter length of List: -4
+Invalid Length
+
+*/
+
+**************************************************************************************************************************************************
+
+
+
+
+
+
+
+import java.util.Scanner;
+class LinkedList
+{
+    Node head;
+    class Node
+    {
+        int value;
+        Node next;
+        Node(int d)
+        {
+            value=d;
+            next=null;
+        }
+    }
+public int createStack(int new_value)
+{
+    Node new_node=new Node(new_value);
+    new_node.next=head;
+    head=new_node;
+    return new_value;
+}
+public void displayStack()
+{
+    Node temp=head;
+    while(temp!=null)
+    {
+        System.out.print(temp.value+" ");
+        temp=temp.next;
+    }
+}
+public void stackReverse()
+{
+    Node previousNode=null;
+    Node nextNode;
+    Node currentNode=head;
+    while(currentNode!=null)
+    {
+        nextNode=currentNode.next;
+        currentNode.next=previousNode;
+        previousNode=currentNode;
+        currentNode=nextNode;
+    }
+    head=previousNode;
+}
+}
+public class StackDriver
+{
+    public static void main(String[] args)
+    {
+        Scanner sc=new Scanner(System.in);
+        LinkedList b=new LinkedList();
+        System.out.println("Enter length of List:");
+        int val=sc.nextInt();
+        if(val<=0)
+        {
+            System.out.println("Invalid Length");
+        }
+        else
+        {
+            int a[]=new int[val];
+            for(int i=0;i<val;i++)
+            {
+                a[i]=i+1;
+                b.createStack(a[i]);
+            }
+            System.out.println("Elements in Stack");
+            b.stackReverse();
+            b.displayStack();
+            System.out.println("\nElements in the stack after reversal");
+            b.stackReverse();
+            b.displayStack();
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
