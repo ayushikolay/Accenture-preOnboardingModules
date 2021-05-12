@@ -1,0 +1,158 @@
+/*
+Mr. Emun give a task to his son Maran. Mr. Emun has a box, which contain numbers only. The task for Maran is to find if the box is valid or invalid. If the sum of the last digits of all the numbers in the box is even then it is a valid box. If the sum of the last digits of all the numbers in the odd then it is an Invalid box. Create a java application to help Maran check if the box is valid or Invalid.
+
+Note:
+
+
+ 
+The input numbers must be greater than zero. Else display “ is not a valid input” and terminates.
+If the sum is even, then print “ is even it’s a valid box”.
+If the sum is odd, then print “ is odd it’s an invalid box”.
+The box cannot contain balls less than zero, if so print ” is not a valid input”. Please don’t use System.exit(0) to terminate the program.
+Sample Input 1:
+
+The box contain
+
+6
+
+Enter the numbers
+
+5
+
+55
+
+3
+
+59
+
+42
+
+8
+
+Sample Output 1:
+
+32 is even its valid box
+
+Explanation:
+
+The sum of all last digits (5+5+3+9+2+8=32) is 32, it’s even. So, the box is valid
+
+Sample Input 2:
+
+The box contain
+
+5
+
+Enter the numbers
+
+32
+
+1
+
+858742
+
+56
+
+95254
+
+Sample Output 2:
+
+15 id odd its invalid box
+
+Sample Input 3:
+
+The box contain
+
+4
+
+Enter the numbers
+
+3
+
+5453
+
+-1
+
+Sample Output 3:
+
+-1 is not a valid input
+
+Sample Input 4:
+
+The box contain
+
+-9
+
+Sample Output 4:
+
+-9 is not a valid input
+*/
+*********************************************************************************************************************************************************
+
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("The box contain");
+        int num = sc.nextInt();
+        if(num<0){
+            System.out.println(num+" is not a valid input");
+            return;
+        }
+        else{
+            System.out.println("Enter the number");
+            int arr[] = new int[num];
+            int sum =0;
+            for (int i=0;i<num;i++){
+                int a = sc.nextInt();
+                if(a>0){
+                    arr[i] = a;
+                    sum += (arr[i]%10);
+                }
+                else{
+                    System.out.println(a+" is not a valid input");
+                }
+            }
+
+
+            if(sum%2==0){
+                System.out.println(sum+" is even its valid box");
+            }
+            else {
+                System.out.println(sum+" is odd its invalid box");
+            }
+
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
