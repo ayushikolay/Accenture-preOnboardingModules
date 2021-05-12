@@ -1,0 +1,121 @@
+/*
+The Manager of Sathya & Co showroom wants to know the stock of inverter and Non-Inverter AC in order to take bulk orders. So, the staffs count the Inverter and Non-Inverter AC separately which is kept on racks in the warehouse. Help them to count using your Java skills
+
+Note:
+
+
+ 
+AC type should be either Inverter. If not, display “<AC_type> AC is not available”.
+
+Sample input 1:
+
+10
+
+List of AC
+
+Inverter
+
+Non-Inverter
+
+Inverter
+
+Inverter
+
+Inverter
+
+Non-Inverter
+
+Non-Inverter
+
+Non-Inverter
+
+Inverter
+
+Non-Inverter
+
+Sample Output 1:
+
+Inverter AC is of count 5
+
+Non-Inverter AC is of count 5
+
+Sample Input 2:
+
+10
+
+List of AC
+
+Inverter
+
+Non-Inverter
+
+Spit
+
+Sample Output 2:
+
+Split AC is not available
+*/
+
+*************************************************************************************************************************************************************
+
+import java.util.Scanner;
+
+public class Count_AC {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n;
+        System.out.println("Total count of AC");
+        n = sc.nextInt();
+        sc.nextInt();
+        int count=0;
+        int count1=0;
+        String ac[] = new String[n];
+        System.out.println("List of AC");
+        for (int i=0;i<n;i++){
+            ac[i] = sc.nextLine();
+            if(ac[i].equalsIgnoreCase("Inverter"))
+            {
+                count++;
+            }
+            else if(ac[i].equalsIgnoreCase("Non-Inverter"))
+            {
+                count1++;
+            }
+            else {
+                System.out.println(ac[i]+" AC is not avaiable");
+                System.exit(0);
+            }
+        }
+        System.out.println("Inverter AC is of count "+count);
+        System.out.println("Non-Inverter AC is of count "+count1);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
