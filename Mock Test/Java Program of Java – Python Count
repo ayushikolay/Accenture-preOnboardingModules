@@ -1,0 +1,134 @@
+/*
+
+Write a Java program to create a string array of size N by getting N value from the user. After getting the input, check whether the input is Java or Python, if yes store it in the array and count the number of Java or Python. If the input is other than Java or Python then the output should be “Invalid” and the program should halt.
+
+Note:
+
+
+ 
+Both Java and Python are case insensitive.
+
+Sample Input 1:
+
+5
+
+Java
+
+java
+
+Python
+
+python
+
+JAVA
+
+Sample Output 1:
+
+Java count 3
+
+Python count 2
+
+Sample Input 2:
+
+5
+
+Java
+
+python
+
+c++
+
+Sample Output 1:
+
+Invalid
+*/
+**********************************************************************************************************************************************************
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n =sc.nextInt();
+        String arr[] = new String[n];
+        for (int i=0;i<n;i++)
+        {
+            String str = sc.next();
+            if(str.equalsIgnoreCase("java") || str.equalsIgnoreCase("python"))
+            {
+                arr[i] = str;
+            }
+            else {
+                System.out.println("Invalid");
+                System.exit(0);
+            }
+        }
+        int j=0,p=0;
+        for (int i=0;i<arr.length;i++)
+        {
+            if(arr[i].equalsIgnoreCase("java")){
+                j++;
+            }
+            else 
+                p++;
+        }
+        System.out.println("Java count "+j);
+        System.out.println("Python count "+p);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
