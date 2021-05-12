@@ -1,0 +1,40 @@
+import java.util.Scanner;
+
+public class discount_rate {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the distributor name");
+        String name = sc.nextLine();
+        System.out.println("Mobile number");
+        String num = sc.nextLine();
+        System.out.println("Bottle size (in ml)");
+        int size = sc.nextInt();
+        System.out.println("No of bottles required");
+        float b = sc.nextFloat();
+
+        if(size<300 || size>500){
+            System.out.println(size+" ml is not available");
+        }
+        else if(size == 500 && b <= 25){
+            float c = b*10;
+            System.out.println("Total price to be paid by the distributor is "+(c*0.95));
+        }
+        else if(size == 500 && b>25){
+            float c = b*10;
+            System.out.println("Total price to be paid by the distributor is "+(c*0.90));
+        }
+        else if(size == 300 && b<=25){
+            float c = b*6;
+            System.out.println("Total price to be paid by the distributor is "+(c*0.98));
+        }
+        else if(size == 300 && b>25){
+            float c = b*6;
+            System.out.println("Total price to be paid by the distributor is "+(c*0.96));
+        }
+        else{
+            System.out.println("Invalid input");
+        }
+    }
+}
+
+
