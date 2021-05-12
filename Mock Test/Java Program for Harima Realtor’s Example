@@ -1,0 +1,33 @@
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        double total =0;
+        System.out.println("Enter the buyer name");
+        String name =sc.nextLine();
+        System.out.println("Enter the Land area");
+        int area = sc.nextInt();
+        sc.nextLine();
+        if(area>=400 && area<=599){
+            total = area*1700;
+            total = total * 0.95;
+        }
+        else if(area>=600 && area<=999){
+            total = area*1900;
+            total = total * 0.95;
+        }
+        else if(area>=1000 && area<=2600){
+            total = area*2600;
+            total = total * 0.96;
+        }
+        else if(area>=2500 && area<=3000){
+            total = area*2800;
+            total = total * 0.97;
+        }
+        else{
+            System.out.println(area+" is out of range");
+            return;
+        }
+        System.out.println("Total payable amount after discount is \n"+total);
+    }
+}
