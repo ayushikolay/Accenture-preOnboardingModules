@@ -1,0 +1,98 @@
+/*
+Write a Java Program to accept three positive Integers as input and check whether the given numbers farm a right angle Triangle or not. If the input numbers form a triangle print “RightAngle Triangle” else “Not a right-angle Triangle”.
+
+In case of zero or negative inputs print “Invalid”.
+
+
+ 
+Note: Rule to form a right-angle triangle is, sum of square of any two numbers should be equal to the square of third number.
+
+Sample input 1:
+
+Enter three sides:
+
+3
+
+4
+
+5
+
+Sample output:
+
+Right-Angle Triangle
+
+Sample input 2:
+
+Enter three sides:
+
+32
+
+0
+
+5
+
+Sample output 2:
+
+Invalid
+
+*/
+
+*************************************************************************************************************************************************************
+
+
+import java.util.Scanner;
+public class right_angle_triangle {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter three sides:");
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        int c = sc.nextInt();
+        if(a>0 && b>0 && c>0){
+            int a1 = a*a;
+            int b1 = b*b;
+            int c1 = c*c;
+            if(c1== a1+b1 || b1==a1+c1 || a1==b1+c1){
+                System.out.println("Right-Angle Triangle");
+            }
+            else {
+                System.out.println("Not a right-angle Triangle");
+            }
+        }
+        else{
+            System.out.println("Invalid");
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
