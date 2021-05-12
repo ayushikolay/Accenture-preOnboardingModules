@@ -1,0 +1,101 @@
+/*
+Read the question carefully and follow the input and output format.
+
+Given the cubic capacity(CC) of a bike. Write a program to print the mileage/liter for the given Cubic Capacity(CC). The mileage will be calculated as follows:
+
+
+ 
+If CC is between 100 and 125, mileage is 75
+
+if CC is between 126 and 135, mileage is 70
+
+if CC is between 136 and 150, mileage is 60
+
+if CC is between 151 and 200, mileage is 50
+
+if CC is between 201 and 220 mileage is 35
+First line of input consists of an integer that corresponds to CC of a bike.output consist of an integer which is the mileage.
+
+Print “Number too large” when the given input CC is greater than 220.
+
+Print “Number too small” when the given input CC is less than 100.
+
+Sample input 1:
+
+1
+
+Sample output 1:
+
+Number too small
+
+Sample input 2:
+
+160
+
+Sample output 2:
+
+50
+*/
+***********************************************************************************************************************
+
+
+
+import java.util.Scanner;
+public class Find_Mileage {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int  cc = sc.nextInt();
+
+        if(100>cc){
+            System.out.println("Number too small");
+        }
+        if(100<=cc && 125>=cc){
+            System.out.println(75);
+        }
+        if(126<=cc && 135>=cc){
+            System.out.println(70);
+        }
+        if(136<=cc && 150>=cc){
+            System.out.println(60);
+        }
+        if(151<=cc && 200>=cc){
+            System.out.println(50);
+        }
+        if(201<=cc && 220>=cc){
+            System.out.println(35);
+        }
+        if(cc>220){
+            System.out.println("Number too large");
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
