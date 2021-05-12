@@ -1,0 +1,164 @@
+/*
+
+
+
+
+Login Page
+Antony and his friends plan to create an application. They decide to create a login page. Users need to register their details and login before using the application.
+
+They need to create a login page where only the registered user can login Create a Java program to help them create a simple model for their application by getting registration details, storing them and verifying the login process.
+
+
+ 
+Note:
+
+Registered Username must contain at least 4 characters and should not contain any space. If not, print “Invalid Username” and terminate the program.
+Registered Password must contain at least * characters and should not contain any space. If not, print “Invalid Password” and terminate the program.
+If registered username and password (Case Sensitive) satisfies the above condition then print “Registered Successfully” and continue to ask for login details.
+If Login Username and Password is equal to the previously Registered Username and Password then print “Welcome <User Name> you have Logged-in Successfully” else print “Username or Password Mismatch”
+Please do not use System.exit(0) to terminate the program
+
+Sample Input/Output 1:
+
+Enter the Username
+
+Jack
+
+Enter the Password
+
+12345678
+
+Jack you are Registered Successfully
+
+Enter the Username
+
+Jack
+
+Enter the Password
+
+12345678
+
+Welcome Jack you have Logged-in Suuccessfully
+
+Sample Input/Output 2:
+
+Enter the Username
+
+TomHolland
+
+Enter the Password
+
+tomhol891
+
+TomHolland you are Registered Successfully
+
+Enter the Username
+
+TomHolland
+
+Enter the Password
+
+896745231
+
+Username or Password Mismatch
+
+Sample Input / Output 3:
+
+Enter the Username
+
+Chris Hemsworth
+
+Invalid Username
+
+Sample Input / Output 4:
+
+Enter the Username
+
+downyrichard
+
+Enter the Password
+
+183
+
+Invalid Password
+*/
+
+********************************************************************************************************************************************************
+
+import java.util.Scanner;
+public class Login_page {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String sp=" ";
+        System.out.println("Enter the Username");
+        String uname = sc.nextLine();
+        if((uname.contains(sp)) || uname.length()<4){
+            System.out.println("Invalid Username");
+            return;
+        }
+
+        System.out.println("Enter the Password");
+        String upass = sc.nextLine();
+        if((upass.contains(sp)) || upass.length()<8){
+            System.out.println("Invalid Password");
+            return;
+        }
+
+        System.out.println(uname+" you are Registered Successfully");
+
+        System.out.println("Enter the Username");
+        String lname = sc.nextLine();
+        System.out.println("Enter the Password");
+        String lpass = sc.nextLine();
+
+        if(uname.equals(lname) && upass.equals(lpass)){
+            System.out.println("Welcome "+lname+" you have Logged-in Successfully");
+        }
+        else{
+            System.out.println("Username or password Mismatch");
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
