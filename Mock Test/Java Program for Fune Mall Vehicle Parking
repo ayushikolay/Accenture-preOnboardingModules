@@ -1,0 +1,90 @@
+/*
+Site drove her car the Fune Mall. As she reaches the parking lot she gets a token from the machine. But she’s not sure where she wants to park her car. She sees a display board that gives the status of he occupancy in the parking lot.
+
+There are 4 basements: B1, B2, B3, and B4. The values of token numbers are displayed in the giant display board as follows. Help Sita to find the basement number to park her car.
+
+
+ 
+If token number is between 1 and 50 (both inclusive) then the output B1.
+If token number is between 51 and 100 (both inclusive) then the output B2.
+If token number is between 101 and 120 (both inclusive) the the output B3.
+If token number is between 121 and 180 (both inclusive) the the output B4.
+Otherwise, print “Invalid Input ” and terminate the program.
+Input Format:
+
+Input consist of 1 integer corresponding to N
+
+Output Format:
+
+Output consists of a string which is either “B1″or”B2″or”B3″or”B4”
+
+Please do not use System,exit(0) to terminate the application
+
+Sample Input 1:
+
+120
+
+Sample Output 1:
+
+B3
+
+Sample Input 1:
+
+180
+
+Sample Output 1:
+
+B4
+*/
+
+**********************************************************************************************************************************************************
+
+import java.util.Scanner;
+
+public class fune_mall_vehicle_parking {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int num = sc.nextInt();
+
+        if(num>=1 && num<=50){
+            System.out.println("B1");
+        }
+        else if(num>=51 && num<=100){
+            System.out.println("B2");
+        }
+        else if(num>=101 && num<=120){
+            System.out.println("B3");
+        }
+        else if(num>=121 && num<=180){
+            System.out.println("B4");
+        }
+        else{
+            System.out.println("Invalid Input");
+        }
+
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
