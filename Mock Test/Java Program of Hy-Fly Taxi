@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+public class taxi {
+    public static void main(String[] args) {
+        double totalfair =0;
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the customer name");
+        String name = sc.nextLine();
+        System.out.println("Enter the distance travelled");
+        int dist = sc.nextInt();
+
+        if(dist<200 || dist>5000){
+            System.out.println(dist+" is out of range");
+            return;
+        }
+        else if(dist>= 200 && dist<=500){
+            totalfair = dist*12;
+            totalfair = totalfair * 0.97;
+        }
+        else if(dist>= 501 && dist <=1000){
+            totalfair = dist*10;
+            totalfair = totalfair * 0.95;
+        }
+        else if(dist>= 1001 && dist <= 2999){
+            totalfair = dist*10;
+            totalfair = totalfair * 0.90;
+        }
+        else if(dist>= 3000 && dist <=5000){
+            totalfair = dist*8;
+            totalfair = totalfair * 0.85;
+        }
+        System.out.println("Total payable fare after discount is "+totalfair);
+
+    }
+}
